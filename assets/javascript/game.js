@@ -12,3 +12,17 @@ When user runs out of guesses, reset game, but not the stats
 Display all game stats to the user */
 
 // Create an Array of options for both computer and user to choose from
+
+// Create Variables
+
+// Create array of all the letters in the english alphabet
+
+// Randomly chooses a letter from the alphabet array. This is the psychic's choice.
+
+// Function to Reset Game to original settings
+
+// Grab users keystroke to intput there guess at the letter and start the game
+
+// Output to place on the webpage
+
+// Set the inner HTML contents of the game_output id to our html string
