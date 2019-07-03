@@ -11,11 +11,45 @@ When user wins, reset game, but not the stats
 When user runs out of guesses, reset game, but not the stats
 Display all game stats to the user */
 
-// Create an Array of options for both computer and user to choose from
+//  Variables
 
-// Create Variables
+var correct = 0;
+var incorrect = 0;
+var guessesLeft = 10;
+var guessesSoFar = [];
+var pyschicChoice = "";
+var userGuess = "";
 
-// Create array of all the letters in the english alphabet
+// Array of alphabets for both computer and user to choose from
+
+var alphabet = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z"
+];
 
 // Randomly chooses a letter from the alphabet array. This is the psychic's choice.
 
