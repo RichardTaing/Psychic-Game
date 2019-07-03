@@ -1,10 +1,8 @@
 /* CSS for Pyschic Game : Not sure if i will use bootstrap yet*/
 
 body {
-  background: url("../images/fortune-teller-crystal-ball.jpg") no-repeat center
-    center fixed;
-
   /* found this on Stackoverflow so that my image does not repeat in blocks*/
+  background: url("../images/crytal-ball.jpg") no-repeat center center fixed;
   -webkit-backdrop-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
