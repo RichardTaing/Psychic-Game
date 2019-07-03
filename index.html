@@ -7,16 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Psychic Game</title>
-
+    <!-- Linking reset.css to reduce browser inconsistencies -->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <!-- -->
+    <div class="wrapper">
 
+        <div class="container">
+            <div class="header">
+                <h1><Strong>The Psychic Game</Strong></h1><br>
+                <!-- Description of the game -->
+                <p>Can you guess what <b>LETTER</b> I am thinking of!</p><br>
+                <p>Press any letter on the keyboard to make your guesses</p><br>
+                <br>
+                <p>You are allowed <b>ONLY</b> 10 guesses</p>
+
+                <!-- This section will be where the wins/losses count will be -->
+                <div class="main-section" id="win-loss">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Link to JavaScript -->
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 
