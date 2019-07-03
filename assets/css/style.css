@@ -1,6 +1,7 @@
 /* CSS for Pyschic Game : Not sure if i will use bootstrap yet*/
 
 body {
+  color: antiquewhite;
   /* found this on Stackoverflow so that my image does not repeat in blocks*/
   background: url("../images/crytal-ball.jpg") no-repeat center center fixed;
   -webkit-backdrop-size: cover;
