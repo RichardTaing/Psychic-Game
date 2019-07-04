@@ -50,6 +50,7 @@ var alphabet = [
   "y",
   "z"
 ];
+document.getElementById("win-loss".innerHTML =alphabet.join)
 
 // Creating loop - loop did not work - commenting out
 
@@ -57,7 +58,12 @@ var alphabet = [
 //   console.log(alphabet[i]);
 // }
 
-// Randomly chooses a letter from the alphabet array. This is the psychic's choice.
+// Randomly choose a letter from the alphabet array. This is the psychic's choice.
+
+var psychic = (){
+  pyschicChoice=alphabet[Math.floor(Math.random()*alphabet.length)];
+  console.log(pyschicChoice);
+}
 
 // Function to Reset Game to original settings
 
