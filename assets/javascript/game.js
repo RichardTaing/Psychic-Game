@@ -13,8 +13,8 @@ Display all game stats to the user */
 
 //  Variables
 
-var correct = 0;
-var incorrect = 0;
+var win = 0;
+var loss = 0;
 var guessesLeft = 10;
 var guessesSoFar = [];
 var pyschicChoice = "";
@@ -50,25 +50,36 @@ var alphabet = [
   "y",
   "z"
 ];
-document.getElementById("win-loss".innerHTML =alphabet.join)
+// document.getElementById(("win-loss".innerHTML = alphabet.join));
 
 // Creating loop - loop did not work - commenting out
 
-// for (var i = 0; 1 < alphabet.length; i++) {
+// for (var i = 0; 1 < alphabet.length; i++)
 //   console.log(alphabet[i]);
 // }
 
-// Randomly choose a letter from the alphabet array. This is the psychic's choice.
+// Function to Reset Game to original settings
 
-var psychic = (){
-  pyschicChoice=alphabet[Math.floor(Math.random()*alphabet.length)];
+function reset() {
+  guessesLeft = 10;
+  guessesSoFar = [];
+  pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
   console.log(pyschicChoice);
 }
+// Randomly choose a letter from the alphabet array. This is the psychic's choice.
 
-// Function to Reset Game to original settings
+// var psychic = function() {
+//   pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+//   console.log(pyschicChoice);
+// };
 
 // Grab users keystroke to intput there guess at the letter and start the game
 
+document.onkeyup = function(event) {
+  console.log(pyschicChoice);
+  var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
+  console.log(userGuess);
+};
 // Output to place on the webpage
 
 // Set the inner HTML contents of the game_output id to our html string
