@@ -51,6 +51,12 @@ var alphabet = [
   "z"
 ];
 
+// Creating loop - loop did not work - commenting out
+
+// for (var i = 0; 1 < alphabet.length; i++) {
+//   console.log(alphabet[i]);
+// }
+
 // Randomly chooses a letter from the alphabet array. This is the psychic's choice.
 
 // Function to Reset Game to original settings
