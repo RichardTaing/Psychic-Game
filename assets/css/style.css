@@ -1,10 +1,6 @@
 /* CSS for Pyschic Game */
 
 html {
-}
-
-body {
-  color: white;
   background: url("../images/vector-globe-crystal-ball.jpg") no-repeat center
     center fixed;
   -webkit-backdrop-size: cover;
@@ -12,6 +8,10 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-position: center center;
+}
+
+body {
+  color: white;
 }
 
 /* .wrapper {
