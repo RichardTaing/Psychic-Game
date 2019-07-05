@@ -115,10 +115,11 @@ h2 {
   padding: 5%;
   text-align: center;
   height: 40%;
-  font-family: "Indie Flower", cursive;
+  margin: 25px;
+  background-color: transparent;
 }
 
-#footer {
+footer {
   position: absolute;
   bottom: 0px;
   height: 35px;
