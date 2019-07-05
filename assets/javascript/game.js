@@ -11,17 +11,7 @@ When user wins, reset game, but not the stats
 When user runs out of guesses, reset game, but not the stats
 Display all game stats to the user */
 
-//  Variables
-
-var win = 0;
-var loss = 0;
-var guessesLeft = 10;
-var guessesSoFar = [];
-var pyschicChoice = "";
-var userGuess = "";
-
-// Array of alphabets for both computer and user to choose from
-
+// Created an Array of alphabetical options s for both computer and user to choose from
 var alphabet = [
   "a",
   "b",
@@ -51,42 +41,93 @@ var alphabet = [
   "z"
 ];
 
-// Randomly choose a letter from the alphabet array. This is the psychic's choice.
+//  Created variables for stats
 
+var wins = 0;
+var losses = 0;
+var guessesLeft = 10;
+var guessesSoFar = [];
+var pyschicChoice = "";
+var userGuess = "";
+
+// Randomly creating pyschics choice.
 var psychic = function() {
   pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+  console.log("The Psychic has choosen: " + pyschicChoice);
 };
 
-// document.getElementById(("win-loss".innerHTML = alphabet.join));
-
-// Creating loop - loop did not work - commenting out
-
-// for (var i = 0; 1 < alphabet.length; i++)
-//   console.log(alphabet[i]);
-// }
-
-// Function to Reset Game to original settings
-
-var reset = function() {
-  guessesLeft = 10;
-  guessesSoFar = [];
-  pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-  console.log(pyschicChoice);
-};
-
-// var psychic = function() {
-//   pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-//   console.log(pyschicChoice);
-// };
-
-// Grab users keystroke to intput there guess at the letter and start the game
-
+// Starts the script ever time a key is pressed, on the key release (onekeyup)
 document.onkeyup = function(event) {
-  console.log(pyschicChoice);
+  // User presses a key, the key is then recorded under var userGuess and converts to UpperCase
   userGuess = String.fromCharCode(event.keyCode).toUpperCase();
   console.log(userGuess);
+
+  //Log all keys pressed by user into guessesSoFar by pushing them into the empty array.
+  if (event.keyCode >= 65 && event.keyCode <= 90) {
+    //65 to 90 is the range for Capital alphabates (A-Z)
+    guessesSoFar.push(userGuess);
+    document.getElementById("guessesSoFar").innerHTML = guessesSoFar.join(", ");
+  }
+
+  // This is to check if the user has entered the correct letters
+  if (event.keyCode >= 65 && event.keyCode <= 90) {
+    //If user guesses right, increase the wins count, reset guesses left, reset so far, pick a new letter:
+    if (userGuess == pyschicChoice) {
+      wins++;
+      guessesLeft--;
+      guessesSoFar = [];
+      guessesLeft = 10;
+
+      //displays update stats for user
+      document.getElementById("guessesSoFar").innerHTML = guessesSoFar.join(
+        ", "
+      );
+      document.getElementById("wins").innerHTML = wins;
+      document.getElementById("guessesLeft").innerHTML = guessesLeft;
+      document.getElementById("guessesLeft").innerHTML = guessesLeft;
+
+      //Alerts the user
+      alert(
+        "Have you thought about being a Psychic? Cause you guessed right! '" +
+          userGuess +
+          "' ?"
+      );
+      alert("Do you have what it takes to try again?");
+
+      // Choose another letter
+      pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+      console.log("The Psychic has choosen: " + pyschicChoice);
+    } else {
+      //If user guesses wrong, increase the losses count, and decrease number of guessesLeft.
+      losses++;
+      guessesLeft--;
+
+      //This displays updated stats to user.
+      document.getElementById("losses").innerHTML = losses;
+      document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    }
+  }
+  //An alert will be displayed if the users presses keys other than letters
+  else {
+    alert("Please be sure to select a letter from the Alphabet (from A to Z)");
+  }
+  // When the users runs out of guesses this will reset the counter back to 0. If guessesLeft = 0, reset guessesLeft back to 10
+  if (guessesLeft == 0) {
+    guessesLeft = 10;
+    guessesSoFar = [];
+
+    //This displays updated stats to user with an Alert
+    document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    document.getElementById("guessesSoFar").innerHTML = guessesSoFar.join(", ");
+    alert("GAME OVER");
+    alert("Looks like you suck at this. Want to try again?");
+
+    // Choose another letter
+    pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+    console.log("The Psychic has choosen: " + pyschicChoice);
+  }
 };
 
-// Output to place on the webpage
+// Cant seem to get the Output to place on the webpage
 
-// Set the inner HTML contents of the game_output id to our html string
+// maybe set the inner HTML contents of the game_output id to our html string
