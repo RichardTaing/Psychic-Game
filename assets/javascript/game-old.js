@@ -1,15 +1,15 @@
 /* BASICS FOR THE GAME:
-1. Computer makes a random letter choice
-2. User selects a letter
-3. Make sure user selection is a letter
-4. Capture the computer's choice and the user's guess
-5. Compare the choice and the guess
-7. Determine Wins & Losses
-9. Count the attempts made by user
-10. Record all guesses made by user
-11. When user wins, reset game, but not the stats
-12. When user runs out of guesses, reset game, but not the stats
-13. Display all game stats to the user */
+Computer makes a random letter choice
+User selects a letter
+Make sure user selection is a letter
+Capture the computer's choice and the user's guess
+Compare the choice and the guess
+Determine Wins & Losses
+Count the attempts made by user
+Record all guesses made by user
+When user wins, reset game, but not the stats
+When user runs out of guesses, reset game, but not the stats
+Display all game stats to the user */
 
 // Created an Array of alphabetical options s for both computer and user to choose from
 var alphabet = [
@@ -42,11 +42,12 @@ var alphabet = [
 ];
 
 //  Created variables for stats
+
 var wins = 0;
 var losses = 0;
 var guessesLeft = 10;
 var guessesSoFar = [];
-var pyschicChoice; // declaring only
+var pyschicChoice;
 
 // Randomly creating pyschics choice.
 pyschicChoice = function() {
@@ -54,16 +55,17 @@ pyschicChoice = function() {
   console.log("The Psychic has choosen: " + pyschicChoice);
 };
 
-// Starts the script ever time a key is pressed; on the key release (onekeyup)
+// Starts the script ever time a key is pressed, on the key release (onekeyup)
 document.onkeyup = function(event) {
-  // User presses a letter key, then recorded under var userGuess and converts to UpperCase
-  var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); // had to change to lowercase because uppercase was not making the script function
+  // User presses a key, the key is then recorded under var userGuess and converts to UpperCase
+  var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
   console.log(userGuess);
 
-  //Letter keys pressed by the user are pushed into the guessesSoFar empty array.
+  //Log all keys pressed by user into guessesSoFar by pushing them into the empty array.
   if (event.keyCode >= 65 && event.keyCode <= 90) {
     //65 to 90 is the range for Capital alphabates (A-Z)
     guessesSoFar.push(userGuess);
+    document.getElementById("guessesSoFar").innerHTML = guessesSoFar.join(", ");
   }
 
   // This is to check if the user has entered the correct letters
@@ -75,17 +77,33 @@ document.onkeyup = function(event) {
       guessesSoFar = [];
       guessesLeft = 10;
 
-      //Alerts the user when they guessed correctly
-      alert("CORRECT!\n" + "Have you thought about being a Psychic?");
-      alert("Want to try out your new psychic abilities again?");
+      //displays update stats for user
+      document.getElementById("guessesSoFar").innerHTML = guessesSoFar.join(
+        ", "
+      );
+      document.getElementById("wins").innerHTML = wins;
+      document.getElementById("guessesLeft").innerHTML = guessesLeft;
+      document.getElementById("guessesLeft").innerHTML = guessesLeft;
+
+      //Alerts the user
+      alert(
+        "Have you thought about being a Psychic? Cause you guessed right! '" +
+          userGuess +
+          "' ?"
+      );
+      alert("Do you have what it takes to try again?");
 
       // Choose another letter
       pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
       console.log("The Psychic has choosen: " + pyschicChoice);
     } else {
-      //If user guesses wrong this will increase the losses count, and decrease number of guesses left.
+      //If user guesses wrong, increase the losses count, and decrease number of guessesLeft.
       losses++;
       guessesLeft--;
+
+      //This displays updated stats to user.
+      document.getElementById("losses").innerHTML = losses;
+      document.getElementById("guessesLeft").innerHTML = guessesLeft;
     }
   }
   //An alert will be displayed if the users presses keys other than letters
@@ -97,36 +115,14 @@ document.onkeyup = function(event) {
     guessesLeft = 10;
     guessesSoFar = [];
 
-    alert("GAME OVER LOOSER!");
-    alert(
-      "Looks like you suck at this!\nYou have ZERO psychic abilities!!\nProbably best not to try again!!!"
-    );
+    //This displays updated stats to user with an Alert
+    document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    document.getElementById("guessesSoFar").innerHTML = guessesSoFar.join(", ");
+    alert("GAME OVER");
+    alert("Looks like you suck at this. Want to try again?");
 
     // Choose another letter
     pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
     console.log("The Psychic has choosen: " + pyschicChoice);
   }
-  // Dispays the results on the screen for the user
-  var winloss =
-    "<p> Wins: " +
-    wins +
-    "</p>" +
-    "<br>" +
-    "<p> Losses: " +
-    losses +
-    "</p>" +
-    "<br>" +
-    "<p> Guesses remaining: " +
-    guessesLeft +
-    "</p>" +
-    "<br>" +
-    "<p> Guesses so far: " +
-    guessesSoFar +
-    "</p>" +
-    "<br>" +
-    "<p> You chose: " +
-    userGuess +
-    "</p>";
-
-  document.querySelector("#winloss").innerHTML = winloss;
 };
