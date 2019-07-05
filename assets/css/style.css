@@ -1,17 +1,15 @@
 /* CSS for Pyschic Game */
 
-html {
-  background: url("../images/vector-globe-crystal-ball.jpg") no-repeat center
-    center fixed;
+html,
+body {
+  background: url("../images/vector-globe-crystal-ball.jpg") no-repeat;
+  /* center center fixed;
   -webkit-backdrop-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: center center;
-}
-
-body {
-  color: white;
+  background-position: center center; */
+  height: 100%;
 }
 
 /* .wrapper {
@@ -116,6 +114,8 @@ h2 {
   position: center;
   padding: 5%;
   text-align: center;
+  height: 40%;
+  font-family: "Indie Flower", cursive;
 }
 
 #footer {
