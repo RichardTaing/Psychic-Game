@@ -50,6 +50,13 @@ var alphabet = [
   "y",
   "z"
 ];
+
+// Randomly choose a letter from the alphabet array. This is the psychic's choice.
+
+var psychic = function() {
+  pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+};
+
 // document.getElementById(("win-loss".innerHTML = alphabet.join));
 
 // Creating loop - loop did not work - commenting out
@@ -60,13 +67,12 @@ var alphabet = [
 
 // Function to Reset Game to original settings
 
-function reset() {
+var reset = function() {
   guessesLeft = 10;
   guessesSoFar = [];
   pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
   console.log(pyschicChoice);
-}
-// Randomly choose a letter from the alphabet array. This is the psychic's choice.
+};
 
 // var psychic = function() {
 //   pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -77,9 +83,10 @@ function reset() {
 
 document.onkeyup = function(event) {
   console.log(pyschicChoice);
-  var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
+  userGuess = String.fromCharCode(event.keyCode).toUpperCase();
   console.log(userGuess);
 };
+
 // Output to place on the webpage
 
 // Set the inner HTML contents of the game_output id to our html string
