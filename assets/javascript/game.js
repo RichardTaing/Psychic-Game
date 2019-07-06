@@ -13,32 +13,32 @@
 
 // Created an Array of alphabetical options s for both computer and user to choose from
 var alphabet = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z"
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z"
 ];
 
 //  Created variables for stats
@@ -46,18 +46,18 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 10;
 var guessesSoFar = [];
-var pyschicChoice = null; // declaring only
+var pyschicChoice = null;
 
-// Randomly creating pyschics choice.
+// Randomly creating pyschic choice.
 pyschicChoiceFunc = function() {
   return alphabet[Math.floor(Math.random() * alphabet.length)];
 };
 pyschicChoice = pyschicChoiceFunc();
 console.log("The Psychic has choosen: " + pyschicChoice);
-// Starts the script ever time a key is pressed; on the key release (onekeyup)
+// Starts the script every time a key is pressed; on the key release (onekeyup)
 document.onkeyup = function(event) {
   // User presses a letter key, then recorded under var userGuess and converts to UpperCase
-  var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); // had to change to lowercase because uppercase was not making the script function
+  var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
   console.log(userGuess);
 
   //Letter keys pressed by the user are pushed into the guessesSoFar empty array.
@@ -66,7 +66,6 @@ document.onkeyup = function(event) {
     guessesSoFar.push(userGuess);
   }
 
-  // This is to check if the user has entered the correct letters
   if (event.keyCode >= 65 && event.keyCode <= 90) {
     //If user guesses right, increase the wins count, reset guesses left, reset so far, pick a new letter:
     if (userGuess == pyschicChoice) {
