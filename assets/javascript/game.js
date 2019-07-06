@@ -46,14 +46,14 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 10;
 var guessesSoFar = [];
-var pyschicChoice; // declaring only
+var pyschicChoice = null; // declaring only
 
 // Randomly creating pyschics choice.
-pyschicChoice = function() {
-  pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-  console.log("The Psychic has choosen: " + pyschicChoice);
+pyschicChoiceFunc = function() {
+  return alphabet[Math.floor(Math.random() * alphabet.length)];
 };
-
+pyschicChoice = pyschicChoiceFunc();
+console.log("The Psychic has choosen: " + pyschicChoice);
 // Starts the script ever time a key is pressed; on the key release (onekeyup)
 document.onkeyup = function(event) {
   // User presses a letter key, then recorded under var userGuess and converts to UpperCase
@@ -81,7 +81,6 @@ document.onkeyup = function(event) {
 
       // Choose another letter
       pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-      console.log("The Psychic has choosen: " + pyschicChoice);
     } else {
       //If user guesses wrong this will increase the losses count, and decrease number of guesses left.
       losses++;
@@ -103,30 +102,30 @@ document.onkeyup = function(event) {
     );
 
     // Choose another letter
-    pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+    pyschicChoice = pyschicChoiceFunc();
     console.log("The Psychic has choosen: " + pyschicChoice);
   }
   // Dispays the results on the screen for the user
   var winloss =
-    "<p> Wins: " +
+    "<h3> Wins: " +
     wins +
-    "</p>" +
+    "</h3>" +
     "<br>" +
-    "<p> Losses: " +
+    "<h3> Losses: " +
     losses +
-    "</p>" +
+    "</h3>" +
     "<br>" +
-    "<p> Guesses remaining: " +
+    "<h3> Guesses remaining: " +
     guessesLeft +
-    "</p>" +
+    "</h3>" +
     "<br>" +
-    "<p> Guesses so far: " +
+    "<h3> Guesses so far: " +
     guessesSoFar +
-    "</p>" +
+    "</h3>" +
     "<br>" +
-    "<p> You chose: " +
+    "<h3> You chose: " +
     userGuess +
-    "</p>";
+    "</h3>";
 
   document.querySelector("#winloss").innerHTML = winloss;
 };
