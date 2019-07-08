@@ -95,7 +95,7 @@ document.onkeyup = function(event) {
     guessesLeft = 10;
     guessesSoFar = [];
 
-    alert("GAME OVER LOSER!");
+    alert("GAME OVER!");
     alert(
       "Looks like you suck at this!\nYou have ZERO psychic abilities!!\nProbably best not to try again!!!"
     );
