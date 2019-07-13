@@ -82,7 +82,7 @@ document.onkeyup = function(event) {
       pyschicChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
     } else {
       //If user guesses wrong this will increase the losses count, and decrease number of guesses left.
-      losses++;
+      // losses++;
       guessesLeft--;
     }
   }
@@ -93,6 +93,7 @@ document.onkeyup = function(event) {
   // When the users runs out of guesses this will reset the counter back to 0. If guessesLeft = 0, reset guessesLeft back to 10
   if (guessesLeft == 0) {
     guessesLeft = 10;
+    losses++;
     guessesSoFar = [];
 
     alert("GAME OVER!");
